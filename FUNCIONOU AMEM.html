@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quer namorar comigo?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: linear-gradient(50deg, #4b0082, #800080);
+    }
+
+    .container {
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    #imageContainer {
+      margin-bottom: 20px;
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .option {
+      font-size: 20px;
+      font-family: 'Brush Script MT', cursive;
+      width: 150px;
+      height: 50px;
+      border-radius: 8px;
+      margin: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    #opcYes {
+      background-color: #6a5acd; /* Dark Slate Blue */
+      color: white;
+    }
+
+    #opcNo {
+      background-color: #6a5acd; /* Dark Slate Blue */
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Quer namorar comigo?</h1>
+    <div id="imageContainer">
+        <img class="heart" src="https://cdn.discordapp.com/attachments/1169054636758552656/1211828389628088330/image.png?ex=65ef9e22&is=65dd2922&hm=d663645169c14e8165599cd6f83ecdad873f367805b7a98f10f05d9420c4085f&" alt="Coração">
+    </div>
+    <div class="options">
+      <div id="opcYes" class="option" onclick="accepted()">Sim</div>
+      <div id="opcNo" class="option" onmouseover="moveButton()" onmouseout="stopMoving()">Não</div>
+    </div>
+  </div>
+
+  <script>
+    function moveButton() {
+      const naoButton = document.getElementById("opcNo");
+      const container = document.querySelector(".container");
+
+      function updatePosition(event) {
+        const x = Math.floor(Math.random() * (container.offsetWidth - naoButton.offsetWidth));
+        const y = Math.floor(Math.random() * (container.offsetHeight - naoButton.offsetHeight));
+
+        naoButton.style.left = x + "px";
+        naoButton.style.top = y + "px";
+      }
+
+      updatePosition();
+
+      container.addEventListener("mousemove", updatePosition);
+    }
+
+    function stopMoving() {
+      const container = document.querySelector(".container");
+      container.removeEventListener("mousemove", updatePosition);
+    }
+
+    function accepted() {
+      // Redireciona para um link do YouTube (substitua 'SEU_LINK_DO_YOUTUBE' pelo link real)
+      window.location.href = 'https://youtu.be/b4oqJ5_0XtQ?si=6dvV4taV4Jgdzw89';
+    }
+  </script>
+
+</body>
+</html>
